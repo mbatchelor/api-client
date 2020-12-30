@@ -2,8 +2,10 @@ pipeline {
 
   options { buildDiscarder(logRotator(daysToKeepStr: '7', numToKeepStr: '25')) }
 
-  parameters { booleanParam(name: 'DEPLOY_ARTIFACT', defaultValue: false, description: 'Deploy Artifact') }
-  parameters { booleanParam(name: 'RUN_SONAR', defaultValue: false, description: 'Run Sonar Analysis') }
+  parameters {
+    booleanParam(name: 'DEPLOY_ARTIFACT', defaultValue: false, description: 'Deploy Artifact')
+    booleanParam(name: 'RUN_SONAR', defaultValue: false, description: 'Run Sonar Analysis')
+  }
 
   agent {
     docker {
